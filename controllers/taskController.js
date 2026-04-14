@@ -1,9 +1,6 @@
-// no database yet, just an array in memory
-// everything resets when the server restarts
 let tasks = [];
 let nextId = 1;
 
-// url params always come in as strings, this saves repeating Number() everywhere
 function findById(paramId) {
   const id = Number(paramId);
   return tasks.find((t) => t.id === id);
@@ -31,7 +28,7 @@ const createTask = (req, res) => {
 const getAllTasks = (req, res) => {
   const { status, sort } = req.query;
 
-  let result = [...tasks]; // copy so sort/filter don't touch the original
+  let result = [...tasks];
 
   if (status) {
     const valid = ['pending', 'done'];

@@ -11,7 +11,6 @@ app.get('/', (req, res) => {
   res.json({ message: 'Task Manager API is running' });
 });
 
-// fallback for anything that doesn't match a real route
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
